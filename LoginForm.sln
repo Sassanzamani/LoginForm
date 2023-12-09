@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginForm", "LoginForm\LoginForm.csproj", "{60CD60DE-CEC6-4FFE-A919-0E871C42D150}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDAL", "LoginDAL\LoginDAL.csproj", "{69E9D8F6-7671-4287-AAFE-8F8182A6A8E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{60CD60DE-CEC6-4FFE-A919-0E871C42D150}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CD60DE-CEC6-4FFE-A919-0E871C42D150}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60CD60DE-CEC6-4FFE-A919-0E871C42D150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E9D8F6-7671-4287-AAFE-8F8182A6A8E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E9D8F6-7671-4287-AAFE-8F8182A6A8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E9D8F6-7671-4287-AAFE-8F8182A6A8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E9D8F6-7671-4287-AAFE-8F8182A6A8E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
