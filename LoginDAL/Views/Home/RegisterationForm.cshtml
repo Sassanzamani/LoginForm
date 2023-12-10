@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Registeration Form";
+}
+<h1>@ViewData["Title"]</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h3>Registeration form</h3>
+        <form id="form" action="#">
+            <div class="InputBox">
+                <input type="text" id="email" placeholder="Enter Email address" onkeyup="validate();">
+                <span class="indicator"></span>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validate(){
+            const form = document.getElementById('form');
+            const email = document.getElementById('email').value;
+            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/      
+
+            if (email.match(pattern)){
+                form.classList.add('valid')
+                form.classList.remove('invalid')
+            } else{
+                form.classList.add('invalid')
+                form.classList.remove('valid')
+            }
+            if (email==""){
+                form.classList.remove('invalid')
+                form.classList.remove('valid')
+            }
+        }
+    </script>
+</body>
+</html>

@@ -13,12 +13,12 @@ namespace LoginDAL.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult LoginPage()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult RegisterationForm()
         {
             return View();
         }
