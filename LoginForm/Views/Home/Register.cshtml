@@ -1,0 +1,79 @@
+﻿@model UserInfo
+@{
+    ViewData["Title"] = "Registeration Form";
+}
+@* <h1>@ViewData["Title"]</h1> *@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 style="color:navajowhite;">Registeration form</h1>
+        <br />
+        <form id="form" action="#">
+
+            <div class="InputBox label">
+                <table>
+                <tr>
+                    <td ><label>Full name:</label></td>
+                    <td><input type="text" id="fullname" placeholder="Enter full name"/></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="label">Address:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td><input type="text" id="email" placeholder="Enter E-mail address" onkeyup="validate();"/></td>
+                    <td> <span class="indicator"></span></td>
+                </tr>
+                <tr>
+                    <td>Cell phone number:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validate(){
+            const form = document.getElementById('form');
+            const email = document.getElementById('email').value;
+
+            var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+
+            if (email.match(pattern)){
+                form.classList.add('valid')
+                form.classList.remove('invalid')
+            } else{
+                form.classList.add('invalid')
+                form.classList.remove('valid')
+            }
+            if (email==""){
+                form.classList.remove('invalid')
+                form.classList.remove('valid')
+            }
+        }
+    </script>
+</body>
+</html>

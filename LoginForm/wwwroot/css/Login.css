@@ -21,7 +21,11 @@ h3 {
     font-weight: 500;
     margin-bottom: 5px;
 }
-
+.label {
+    background: transparent;
+    color: navajowhite;
+    font-size: 20px
+}
 #form {
     position: relative;
     border: 2px solid #131313;

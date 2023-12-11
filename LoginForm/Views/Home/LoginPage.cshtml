@@ -1,4 +1,5 @@
-﻿@{
+﻿@model LoginProperties
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,16 +9,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="EmailValidationCheck.css">
+    <link rel="stylesheet" href="~/css/Login.css">
     <title>Document</title>
 </head>
 <body>
     <div>
-        <h3>Email validation check</h3>
+        <h3>Login form</h3>
         <form id="form" action="#">
+   
             <div class="InputBox">
-                <input type="text" id="email" placeholder="Enter Email address" onkeyup="validate();">
-                <span class="indicator"></span>
+                <label style="color:navajowhite;font-size:20px">Username:</label>
+                <input type="text" id="username" placeholder="Enter username" style="background: transparent;color:white;font-size:20px">
+                <br />
+                <label style="color:navajowhite;font-size:20px">Password:&nbsp;</label>
+                <input type="text" id="password" placeholder="Enter password" style="background: transparent;color:white;font-size:20px">
+                <br />
+
+                <button onclick="location.href='@Url.Action("Register","Home")'" id="register"> Register </button>
+                <button id="login"> Login </button>
             </div>
         </form>
     </div>
