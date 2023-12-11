@@ -18,15 +18,21 @@
         <form id="form" action="#">
    
             <div class="InputBox">
-                <label style="color:navajowhite;font-size:20px">Username:</label>
-                <input type="text" id="username" placeholder="Enter username" style="background: transparent;color:white;font-size:20px">
-                <br />
-                <label style="color:navajowhite;font-size:20px">Password:&nbsp;</label>
-                <input type="text" id="password" placeholder="Enter password" style="background: transparent;color:white;font-size:20px">
-                <br />
 
-                <button onclick="location.href='@Url.Action("Register","Home")'" id="register"> Register </button>
-                <button id="login"> Login </button>
+                @using (Html.BeginForm("LoginPage", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <label style="color:navajowhite;font-size:20px">Username:</label>
+                    @Html.TextBoxFor(u => u.Username)
+                    <br />
+                    <label style="color:navajowhite;font-size:20px">Password:&nbsp;</label>
+                    @Html.PasswordFor(p => p.Password)
+                    <br />
+                   @*  <input id="submit" type="submit" value="Sign in" /> *@
+                    
+                    <button onclick="location.href='@Url.Action("Register","Home")'" id="register"> Register </button>
+                    <button onclick="location.href='@Url.Action("LoginPage","Home")'" id="login"> Login </button>
+                }
             </div>
         </form>
     </div>

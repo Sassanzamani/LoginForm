@@ -13,13 +13,21 @@ namespace LoginForm.Controllers
             _logger = logger;
         }
 
-        public IActionResult LoginPage()
+        public IActionResult LoginPage(LoginProperties loginInfo)
         {
+            //if (loginInfo.Username.ToLower() == "amir" && loginInfo.Password.ToLower() == "admin")
+            //{
+            //    return RedirectToAction("Search", "Home");
+            //}
             return View();
         }
 
 
         public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult Search()
         {
             return View();
         }
