@@ -21,11 +21,13 @@ h3 {
     font-weight: 500;
     margin-bottom: 5px;
 }
+
 .label {
     background: transparent;
     color: navajowhite;
     font-size: 20px
 }
+
 #form {
     position: relative;
     border: 2px solid #131313;
@@ -34,33 +36,33 @@ h3 {
     overflow: hidden;
 }
 
-    #form #email {
-        width: 300px;
-        outline: none;
-        background: transparent;
-        border: navajowhite;
-        padding: 12px 15px;
-        padding-right: 50px;
-        color: #fff;
-        font-size: 18px;
-    }
+.textbox {
+    width: 300px;
+    outline: none;
+    background: transparent;
+    border: navajowhite;
+    padding: 12px 15px;
+    padding-right: 50px;
+    color: #fff;
+    font-size: 18px;
+}
 
-    #form .indicator {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 10px;
-        height: 10px;
-        background: #555;
-        border-radius: 50%;
-    }
+#form .indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    background: #555;
+    border-radius: 50%;
+}
 
-    #form.valid .indicator {
-        background: #0f0;
-        box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0;
-    }
+#form.valid .indicator {
+    background: #0f0;
+    box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0;
+}
 
-    #form.invalid .indicator {
-        background: #f00;
-        box-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 20px #f00, 0 0 40px #f00;
-    }
+#form.invalid .indicator {
+    background: #f00;
+    box-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 20px #f00, 0 0 40px #f00;
+}

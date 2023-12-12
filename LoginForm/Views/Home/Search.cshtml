@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LoginForm.Models.UserInfo>
+﻿@model IEnumerable<UserInfo>
 
 @{
     Layout = null;
@@ -8,66 +8,65 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Login.css">
+    <title>Search</title>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RoleID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mobile)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoleID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mobile)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div>
+        <h1 style="color:navajowhite;">Search</h1>
+        <br />
+        <form id="form" action="#">
+
+            <div class="InputBox label">
+                <table>
+                    <tr>
+                        <td><label>Full name:</label></td>
+                        <td><input type="text" class="textbox" id="fullname" placeholder="Enter your full name" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Address:</td>
+                        <td><input type="text" class="textbox" id="address" placeholder="Enter your address" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td><input type="text" class="textbox" id="email" placeholder="Enter your E-mail address" onkeyup="validate();" /></td>
+                        <td> <span class="indicator"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Cell phone number:</td>
+                        <td><input type="text" class="textbox" id="mobile" placeholder="Enter your cell phone number" /></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <button style="align-content:center">Search</button>
+                @Html.ActionLink("Logout", "LoginPage", "Home")
+            </div>
+        </form>
+    </div>
+    <script>
+        function validate() {
+            const form = document.getElementById('form');
+            const email = document.getElementById('email').value;
+
+            var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+
+            if (email.match(pattern)) {
+                form.classList.add('valid')
+                form.classList.remove('invalid')
+            } else {
+                form.classList.add('invalid')
+                form.classList.remove('valid')
+            }
+            if (email == "") {
+                form.classList.remove('invalid')
+                form.classList.remove('valid')
+            }
+        }
+    </script>
 </body>
 </html>

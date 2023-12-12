@@ -7,15 +7,26 @@ namespace LoginForm.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
-        public IActionResult LoginPage(LoginProperties loginInfo)
+        //public IActionResult LoginPage()
+        //{
+        //    //if (loginInfo.Username == "amir" && loginInfo.Password == "admin")
+        //    //{
+        //    //    return RedirectToAction("Search", "Home");
+        //    //}
+        //    return View();
+        //}
+   
+        public IActionResult LoginPage()
         {
-            //if (loginInfo.Username.ToLower() == "amir" && loginInfo.Password.ToLower() == "admin")
+            //if (loginInfo.Username == "amir" && loginInfo.Password == "admin")
             //{
             //    return RedirectToAction("Search", "Home");
             //}
@@ -23,10 +34,19 @@ namespace LoginForm.Controllers
         }
 
 
-        public IActionResult Register()
+   
+        public ActionResult Register()
+        {
+
+            return RedirectToAction("RegisterationForm");
+        }
+
+        [HttpGet]
+        public IActionResult RegisterationForm()
         {
             return View();
         }
+        [HttpGet]
         public IActionResult Search()
         {
             return View();

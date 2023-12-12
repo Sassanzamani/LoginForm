@@ -20,38 +20,40 @@
         <form id="form" action="#">
 
             <div class="InputBox label">
-                <table width="600px">
+                <table>
                 <tr>
                     <td ><label>Full name:</label></td>
-                    <td><input type="text" id="fullname" placeholder="Enter full name"/></td>
+                        <td><input type="text" class="textbox" id="fullname" placeholder="Enter your full name" /></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td class="label">Address:</td>
-                    <td></td>
+                        <td><input type="text" class="textbox" id="address" placeholder="Enter your address" /></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><input type="text" id="email" placeholder="Enter E-mail address" onkeyup="validate();"/></td>
-                    <td> <span class="indicator"></span></td>
+                    <td><input type="text" class="textbox" id="email" placeholder="Enter your E-mail address" onkeyup="validate();"/></td>
+                    <td><span class="indicator"></span></td>
                 </tr>
                 <tr>
                     <td>Cell phone number:</td>
-                    <td></td>
+                        <td><input type="text" class="textbox" id="mobile" placeholder="Enter your cell phone number" /></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Username:</td>
-                    <td></td>
+                        <td><input type="text" class="textbox" id="username" placeholder="Enter your username" /></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td></td>
+                        <td><input type="text" class="textbox" id="password" placeholder="Enter your password" /></td>
                     <td></td>
                 </tr>
             </table>
+                @Html.ActionLink("Register", "Register", "Home")
+                @Html.ActionLink("Return to login page", "LoginPage", "Home")
             </div>
         </form>
     </div>
@@ -65,13 +67,16 @@
             if (email.match(pattern)){
                 form.classList.add('valid')
                 form.classList.remove('invalid')
+                
             } else{
                 form.classList.add('invalid')
                 form.classList.remove('valid')
+                
             }
             if (email==""){
                 form.classList.remove('invalid')
                 form.classList.remove('valid')
+                
             }
         }
     </script>

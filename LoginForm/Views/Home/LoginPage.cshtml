@@ -29,9 +29,8 @@
                     @Html.PasswordFor(p => p.Password)
                     <br />
                    @*  <input id="submit" type="submit" value="Sign in" /> *@
-                    
-                    <button onclick="location.href='@Url.Action("Register","Home")'" id="register"> Register </button>
-                    <button onclick="location.href='@Url.Action("LoginPage","Home")'" id="login"> Login </button>
+                    <a href="/Home/RegisterationForm" class="Button">Create a new user</a>
+                    @Html.ActionLink("Login", "Search", "Home")
                 }
             </div>
         </form>
