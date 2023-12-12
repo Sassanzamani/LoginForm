@@ -28,9 +28,8 @@
                     <label style="color:navajowhite;font-size:20px">Password:&nbsp;</label>
                     @Html.PasswordFor(p => p.Password)
                     <br />
-                   @*  <input id="submit" type="submit" value="Sign in" /> *@
-                    <a href="/Home/RegisterationForm" class="Button">Create a new user</a>
-                    @Html.ActionLink("Login", "Search", "Home")
+                    <a href="Home/RegisterationForm"><input type="button" value="Create a new user" /></a>      
+                    <input id="Login" type="submit" value="Login" />
                 }
             </div>
         </form>

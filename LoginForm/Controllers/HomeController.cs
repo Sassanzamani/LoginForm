@@ -24,12 +24,12 @@ namespace LoginForm.Controllers
         //    return View();
         //}
    
-        public IActionResult LoginPage()
+        public IActionResult LoginPage(LoginProperties loginProperties)
         {
-            //if (loginInfo.Username == "amir" && loginInfo.Password == "admin")
-            //{
-            //    return RedirectToAction("Search", "Home");
-            //}
+            if (loginProperties.Username == "amir" && loginProperties.Password == "admin")
+            {
+                return RedirectToAction("Search", "Home");
+            }
             return View();
         }
 
