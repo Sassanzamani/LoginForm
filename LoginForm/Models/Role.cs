@@ -1,8 +1,8 @@
 ﻿namespace LoginForm.Models
 {
-    public class Role
+    public enum Role
     {
-        public int RoleID { get; set; }
-        public int RoleName { get; set; }
+        OrdinaryUser = 0,
+        Admin=1
     }
 }
