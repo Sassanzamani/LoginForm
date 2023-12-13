@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UserInfo>
+﻿@model IEnumerable<LoginForm.Models.UserInfo>
 
 @{
     Layout = null;
@@ -23,25 +23,28 @@
             <div class="InputBox label">
                 <table>
                     <tr>
-                        <td><label>Full name:</label></td>
-                        <td><input type="text" class="textbox" id="fullname" placeholder="Enter your full name" /></td>
-                        <td></td>
+                        <th>Full name</th>
+                        <th>E-mail</th>
+                        <th>Address</th>
+                        <th>RoleID</th>
+                        <th>UserID</th>
+                        <th>Cellphone Number</th>
+                        <th>Actions</th>
                     </tr>
-                    <tr>
-                        <td class="label">Address:</td>
-                        <td><input type="text" class="textbox" id="address" placeholder="Enter your address" /></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>E-mail:</td>
-                        <td><input type="text" class="textbox" id="email" placeholder="Enter your E-mail address" onkeyup="validate();" /></td>
-                        <td> <span class="indicator"></span></td>
-                    </tr>
-                    <tr>
-                        <td>Cell phone number:</td>
-                        <td><input type="text" class="textbox" id="mobile" placeholder="Enter your cell phone number" /></td>
-                        <td></td>
-                    </tr>
+                    <tbody>
+                       @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.FullName</td>
+                                <td>@item.Email</td>
+                                <td>@item.Address</td>
+                                <td>@item.RoleID</td>
+                                <td>@item.UserID</td>
+                                <td>@item.Tel</td>
+                                <td></td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
                 <button style="align-content:center">Search</button>
                 @Html.ActionLink("Logout", "LoginPage", "Home")

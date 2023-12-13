@@ -1,7 +1,11 @@
+using LoginForm.Interfaces;
+using LoginForm.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped(typeof(ICRUDServices), typeof(CRUDservices));
 
 var app = builder.Build();
 

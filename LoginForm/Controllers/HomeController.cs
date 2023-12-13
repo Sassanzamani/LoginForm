@@ -1,4 +1,5 @@
-﻿using LoginForm.Models;
+﻿using LoginForm.Interfaces;
+using LoginForm.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,11 +9,13 @@ namespace LoginForm.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
+        private ICRUDServices _services;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration,ICRUDServices services)
         {
             _logger = logger;
             _configuration = configuration;
+            _services = services;
         }
 
         //public IActionResult LoginPage()
@@ -23,33 +26,44 @@ namespace LoginForm.Controllers
         //    //}
         //    return View();
         //}
-   
+        [HttpGet]
         public IActionResult LoginPage(LoginProperties loginProperties)
         {
+
             if (loginProperties.Username == "amir" && loginProperties.Password == "admin")
             {
                 return RedirectToAction("Search", "Home");
             }
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult LoginPage(LoginProperties loginProperties)
+        {
+                var result = await _services.GetUsersAsync();
+                return View(result);
+
+
+
             return View();
         }
 
 
-   
         public ActionResult Register()
         {
 
-            return RedirectToAction("RegisterationForm");
+            return RedirectToAction("RegistrationForm");
         }
 
         [HttpGet]
-        public IActionResult RegisterationForm()
+        public IActionResult RegistrationForm()
         {
             return View();
         }
         [HttpGet]
-        public IActionResult Search()
+        public async Task<IActionResult> Search()
         {
-            return View();
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

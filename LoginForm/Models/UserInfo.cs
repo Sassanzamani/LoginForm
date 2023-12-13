@@ -16,6 +16,6 @@ namespace LoginForm.Models
         [Required]
         public int UserID { get; set; }
         [Required]
-        public string Mobile { get; set; }
+        public string Tel { get; set; }
     }
 }
