@@ -6,16 +6,22 @@ namespace LoginForm.Models
     public class UserInfo
     {
         [Required]
-        public string FullName { get; set; }
+        [Display(Name = "Full name")]
+        public string? FullName { get; set; }
         [Required]
-        public string Email { get; set; }
+        [Display(Name = "Email")]
+        public string? Email { get; set; }
         [Required]
-        public string Address { get; set; }
+        [Display(Name = "Address")]
+        public string? Address { get; set; }
         [Required]
+        [Display(Name = "Role ID")]
         public int RoleID { get; set; }
         [Required]
+        [Display(Name = "User ID")]
         public int UserID { get; set; }
         [Required]
-        public string Tel { get; set; }
+        [Display(Name = "Cell phone number")]
+        public string? Tel { get; set; }
     }
 }

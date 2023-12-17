@@ -15,11 +15,11 @@
 <body>
     <div>
         <h3>Login form</h3>
-        <form id="form" action="#">
+        <form id="form" asp-controller="Home" asp-action="Login">
    
             <div class="InputBox">
 
-                @using (Html.BeginForm("LoginPage", "Home", FormMethod.Post))
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
                     <label style="color:navajowhite;font-size:20px">Username:</label>
@@ -28,7 +28,7 @@
                     <label style="color:navajowhite;font-size:20px">Password:&nbsp;</label>
                     @Html.PasswordFor(p => p.Password)
                     <br />
-                    <a href="Home/RegistrationForm"><input type="button" value="Create a new user" /></a>
+                    <input type="button" value="Register" onclick="location.href='@Url.Action("RegistrationForm", "Home")'" />
                     <input id="Login" type="submit" value="Login" />
                 }
             </div>

@@ -64,9 +64,8 @@
                     <td></td>
                 </tr>
             </table>
-                @Html.ActionLink("Register", "Register", "Home")
-                <a href="Home/LoginPage"><input type="button" value="Return to login page" /></a>
-                
+                <input type="button" value="Register" onclick="location.href='@Url.Action("Register", "Home")'" />
+                <input type="button" value="Back" onclick="location.href='@Url.Action("LoginPage", "Home")'" />               
             </div>
         </form>
     </div>

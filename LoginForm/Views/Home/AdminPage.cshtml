@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LoginForm.Models.UserInfo>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Login.css">
+    <title>Search</title>
+</head>
+<body>
+    <div>
+        <h1 style="color:navajowhite;">Search</h1>
+        <br />
+        <table width="1000px" style="color:navajowhite;font-size:20px" id="form" asp-action="Search" asp-controller="Home">
+            <tr>
+                <td>Full name</td>
+                <td><input style="width:100%;font-size:20px" type="text" id="fullname" value="" /></td>
+                <td>&nbsp &nbsp Address</td>
+                <td><input style="width:100%;font-size:20px" type="text" id="address" value="" /></td>
+            </tr>
+            <tr>
+                <td> Email</td>
+                <td><input style="width:100%;font-size:20px" type="text" id="email" value="" onclick="validate();" /></td>
+                <td>&nbsp &nbsp Cell phone number</td>
+                <td><input style="width:100%;font-size:20px" type="text" id="tel" value="" /></td>
+            </tr>
+        </table>
+        <span class="indicator"></span>
+        <br />
+        <input type="submit" value="Search" onclick="location.href='@Url.Action("Search", "Home")'" />
+        <input type="button" value="Log out" onclick="location.href='@Url.Action("LoginPage", "Home")'" />
+        <br /><br />
+    </div>
+    
+    <script>
+        function validate() {
+            const form = document.getElementById('form');
+            const email = document.getElementById('email').value;
+
+            var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+
+            if (email.match(pattern)) {
+                form.classList.add('valid')
+                form.classList.remove('invalid')
+            } else {
+                form.classList.add('invalid')
+                form.classList.remove('valid')
+            }
+            if (email == "") {
+                form.classList.remove('invalid')
+                form.classList.remove('valid')
+            }
+        }
+    </script>
+</body>
+</html>

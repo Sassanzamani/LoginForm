@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LoginForm.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LoginForm.DataAccessLayer
 {
@@ -6,5 +7,12 @@ namespace LoginForm.DataAccessLayer
     {
         public static IConfiguration _configuration;
         string myDb1ConnectionString = _configuration.GetConnectionString("MsDbCnSt");
+
+        
+        public ProjDbContext()
+        {
+            
+        }
     }
+   
 }

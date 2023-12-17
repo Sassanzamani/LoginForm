@@ -1,0 +1,29 @@
+﻿@model List<UserInfo>
+<div id="data" class="InputBox label" style="width:1000px">
+    <table>
+        <tr>
+            <th>Full name</th>
+            <th>E-mail</th>
+            <th>Address</th>
+            <th>Cellphone Number</th>
+            <th>Actions</th>
+        </tr>
+        <tbody>
+
+            @if (Model is not null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Address</td>
+                        <td>@item.Tel</td>
+                        <td><input style="background-color:gold" type="button" value=" Edit " onclick="location.href='@Url.Action("Edit", "Home")'" /> &nbsp;&nbsp; <input style="background-color:red" type="button" value=" Delete " onclick="location.href='@Url.Action("Delete", "Home")'" /></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
