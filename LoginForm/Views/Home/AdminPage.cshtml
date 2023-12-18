@@ -38,7 +38,9 @@
         <input type="button" value="Log out" onclick="Search_ajax();" />
         <br /><br />
     </div>
-    @* location.href='@Url.Action("_SearchUserAsync", "Home") *@
+    <br />
+    <br />
+   @Html.Partial("_SearchUserAsync",Model);
     <script>
         function validate() {
             const form = document.getElementById('form');
@@ -60,7 +62,7 @@
         }
 
 
-        $(function () {
+        function Search_ajax() {
             var fullname_v = $('#fullname').val();
             var address_v = $('#address').val();
             var email_v = $('#email').val();
@@ -80,7 +82,7 @@
                     $('#data').fadeout().html(data).fadeIn();
                 }
             });
-        });
+        };
     </script>
 </body>
 </html>
