@@ -13,9 +13,10 @@ namespace LoginForm.Controllers
     {
         #region private fields
         
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
         private ICRUDServices _services;
+        private readonly ProjDbContext _context;
 
         #endregion
 
@@ -23,16 +24,14 @@ namespace LoginForm.Controllers
         /// <param name="logger"></param>
         /// <param name="configuration"></param>
         /// <param name="services"></param>
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, ICRUDServices services)
+        public HomeController(ProjDbContext context, IConfiguration configuration, ICRUDServices services)
         {
-            _logger = logger;
             _configuration = configuration;
             _services = services;
-
+            _context = context;            
         }
 
         #endregion
-
 
         [HttpGet]
         public IActionResult LoginPage()
@@ -52,9 +51,10 @@ namespace LoginForm.Controllers
             {
                 HttpContext.Session.Set("username", Encoding.ASCII.GetBytes(loginProperties.Username));
                 HttpContext.Session.Set("password", Encoding.ASCII.GetBytes(loginProperties.Password));
-                
                 return RedirectToAction("AdminPage", "Home");
             }
+            //HttpContext.Session.Remove("username");
+            //HttpContext.Session.Remove("password");
             return RedirectToAction("LoginPage", "Home");
         }
 
@@ -67,9 +67,16 @@ namespace LoginForm.Controllers
             {
                 return RedirectToAction("LoginPage", "Home");
             }
+
             var result = await _services.GetUsersAsync();
             return View(result);
         }
+        //public IActionResult Logout()
+        //{
+        //    HttpContext.Session.Remove("username");
+        //    HttpContext.Session.Remove("password");
+        //    return View("LoginPage", "Home");
+        //}
         public ActionResult Register()
         {
 
@@ -83,10 +90,15 @@ namespace LoginForm.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> Search(UserInfo userInfo)
+        public PartialViewResult _SearchUserAsync(string? fullName, string addressString, string emailAddress, string cellPhoneNumber)
         {
-            var result = await _services.SearchUserAsync(userInfo);
-            return Ok(result);
+            UserInfo userInfo = new UserInfo();
+            userInfo.FullName = fullName;
+            userInfo.Address= addressString;
+            userInfo.Email = emailAddress;
+            userInfo.Tel = cellPhoneNumber;
+            var searchResult = _services.SearchUserAsync(userInfo);
+            return PartialView (searchResult);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,4 +1,11 @@
-﻿@model List<UserInfo>
+﻿@model IEnumerable<UserInfo>
+@if (Model.Count()<1)
+{
+
+    <p class="text-center text-info" style="font-size:20px; color:red">There is no user with such specifications. </p>
+}
+else
+{
 <div id="data" class="InputBox label" style="width:1000px">
     <table>
         <tr>
@@ -25,5 +32,5 @@
             }
         </tbody>
     </table>
-
 </div>
+}

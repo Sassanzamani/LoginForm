@@ -34,11 +34,11 @@
         </table>
         <span class="indicator"></span>
         <br />
-        <input type="submit" value="Search" onclick="location.href='@Url.Action("Search", "Home")'" />
-        <input type="button" value="Log out" onclick="location.href='@Url.Action("LoginPage", "Home")'" />
+        <input id="SearchButton" type="submit" value="Search" onclick="" />
+        <input type="button" value="Log out" onclick="Search_ajax();" />
         <br /><br />
     </div>
-    
+    @* location.href='@Url.Action("_SearchUserAsync", "Home") *@
     <script>
         function validate() {
             const form = document.getElementById('form');
@@ -58,6 +58,29 @@
                 form.classList.remove('valid')
             }
         }
+
+
+        $(function () {
+            var fullname_v = $('#fullname').val();
+            var address_v = $('#address').val();
+            var email_v = $('#email').val();
+            var tel_v = $('#tel').val();
+            $.ajax({
+                url: '@Url.Action("_SearchUserAsync", "Home")',
+                dataType: 'html',
+                contentType: 'application/html;charset=utf-8',
+                type: 'GET',
+                data: {
+                    fullName : fullname_v,
+                    addressString : address_v,
+                    emailAddress : email_v,
+                    cellPhoneNumber : tel_v
+                },
+                success: function (data) {
+                    $('#data').fadeout().html(data).fadeIn();
+                }
+            });
+        });
     </script>
 </body>
 </html>

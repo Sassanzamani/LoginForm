@@ -1,10 +1,13 @@
+using LoginForm.DataAccessLayer;
 using LoginForm.Interfaces;
 using LoginForm.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ProjDbContext>(options=>options.UseSqlServer());
 builder.Services.AddScoped(typeof(ICRUDServices), typeof(CRUDservices));
 //builder.Services.AddRazorPages();
 builder.Services.AddDistributedMemoryCache();
