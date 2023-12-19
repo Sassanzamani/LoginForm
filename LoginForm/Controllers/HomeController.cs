@@ -12,8 +12,6 @@ namespace LoginForm.Controllers
     public class HomeController : Controller
     {
         #region private fields
-        
-        //private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
         private ICRUDServices _services;
         private readonly ProjDbContext _context;
@@ -42,9 +40,9 @@ namespace LoginForm.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginProperties loginProperties)
         {
-            loginProperties.Username = loginProperties.Username.ToLower();
+            loginProperties.Username = loginProperties.Username?.ToLower();
             var result = await _services.CheckLoginInfoAsync(loginProperties);
-            var username = result.FirstOrDefault()?.Username.ToLower();
+            var username = result.FirstOrDefault()?.Username?.ToLower();
             var password = result.FirstOrDefault()?.Password;
 
             if ( result != null && loginProperties.Username == username && loginProperties.Password == password)

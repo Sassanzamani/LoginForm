@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<UserInfo>
 @if (Model.Count()<1)
 {
-
     <p class="text-center text-info" style="font-size:20px; color:red">There is no user with such specifications. </p>
 }
 else
 {
-    <br />
-    <br />
-<div id="data" class="InputBox label" style="width:1000px">
     <table>
         <tr>
             <th>Full name</th>
@@ -34,5 +30,4 @@ else
             }
         </tbody>
     </table>
-</div>
 }

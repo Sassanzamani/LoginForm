@@ -26,7 +26,7 @@
                 <td><input style="width:100%;font-size:20px" type="text" id="address" value="" /></td>
             </tr>
             <tr>
-                <td> Email</td>
+                <td>Email</td>
                 <td><input style="width:100%;font-size:20px" type="text" id="email" value="" onclick="validate();" /></td>
                 <td>&nbsp &nbsp Cell phone number</td>
                 <td><input style="width:100%;font-size:20px" type="text" id="tel" value="" /></td>
@@ -34,13 +34,18 @@
         </table>
         <span class="indicator"></span>
         <br />
-        <input id="SearchButton" type="submit" value="Search" onclick="" />
-        <input type="button" value="Log out" onclick="Search_ajax();" />
+        <input id="SearchButton" type="submit" value="Search" onclick="Search_ajax();" />
+        <input type="button" value="Log out" onclick="location.href='@Url.Action("LoginPage", "Home")'" />
         <br /><br />
     </div>
     <br />
-    <br />
-   @Html.Partial("_SearchUserAsync",Model);
+    <div id="data" class="InputBox label" style="width:1000px">
+        @Html.Partial("_SearchUserAsync",Model);
+        
+    </div>
+
+
+
     <script>
         function validate() {
             const form = document.getElementById('form');
@@ -81,8 +86,8 @@
                 success: function (data) {
                     $('#data').fadeout().html(data).fadeIn();
                 }
-            });
-        };
+            )
+}};
     </script>
 </body>
 </html>
